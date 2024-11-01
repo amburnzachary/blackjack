@@ -2,14 +2,14 @@ package main;
 
 public class Card {
 
-    private int rank;
-    private int suit;
+    private Rank rank;
+    private Suit suit;
 
     public Card() {
-        this(1, 1);
+        this(Rank.ACE, Suit.CLUBS);
     }
 
-    public Card(int rank, int suit) {
+    public Card(Rank rank, Suit suit) {
         this.setRank(rank);
         this.setSuit(suit);
     }
@@ -19,17 +19,34 @@ public class Card {
     }
 
 
-    public int getRank() {
+    public Rank getRank() {
         return this.rank;
     }
-    private void setRank(int rank) {
+    private void setRank(Rank rank) {
         this.rank = rank;
     }
 
-    public int getSuit() {
+    public Suit getSuit() {
         return this.suit;
     }
-    private void setSuit(int suit) {
+    private void setSuit(Suit suit) {
         this.suit = suit;
+
+
+    }
+    public void addRank(Rank rank) {
+        this.setRank(rank);
+    }
+
+    public void addSuit(Suit suit) {
+        this.setSuit(suit);
+    }
+
+    public boolean equals(Card guest) {
+        return this.getRank() == guest.getRank() && this.getSuit() == guest.getSuit();
+    }
+
+    public String toString() {
+        return this.rank.toString() + " OF " + this.suit.toString();
     }
 }
