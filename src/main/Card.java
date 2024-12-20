@@ -34,16 +34,13 @@ public class Card {
 
 
     }
-    public void addRank(Rank rank) {
-        this.setRank(rank);
-    }
-
-    public void addSuit(Suit suit) {
-        this.setSuit(suit);
-    }
 
     public boolean equals(Card guest) {
         return this.getRank() == guest.getRank() && this.getSuit() == guest.getSuit();
+    }
+
+    public Card copy() {
+        return new Card(this);
     }
 
     public String toString() {

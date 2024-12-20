@@ -36,6 +36,16 @@ public class Deck {
         return this.getDeck()[i];
     }
 
+    public void shuffleDeck() {
+        for (int i = 0; i < 100; ++i) {
+            int i1 = (int) (Math.random() * 52);
+            int i2 = (int) (Math.random() * 52);
+            Card tmp = this.getCard(i1).copy();
+            this.getDeck()[i1] = this.getCard(i2);
+            this.getDeck()[i2] = tmp;
+        }
+    }
+
     public void printDeck() {
         for (int i = 0; i < 52; ++i) {
             System.out.println(this.getCard(i).toString());
