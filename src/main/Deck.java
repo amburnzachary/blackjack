@@ -3,6 +3,7 @@ package main;
 public class Deck {
 
     private Card[] deck;
+    private int cardsDealt;
 
     public Deck() {
         this.initDeck();
@@ -18,9 +19,18 @@ public class Deck {
             this.deck = deck;
     }
 
+    public int getCardsDealt() {
+        return this.cardsDealt;
+    }
+
+    private void setCardsDealt(int val) {
+        this.cardsDealt = val;
+    }
+
 
     public void initDeck() {
         Card[] deck = new Card[52];
+        this.setCardsDealt(0);
         int i = 0;
 
         for (Suit suit : Suit.values()) {
@@ -44,6 +54,12 @@ public class Deck {
             this.getDeck()[i1] = this.getCard(i2);
             this.getDeck()[i2] = tmp;
         }
+    }
+
+    public Card drawCard() {
+        Card drawnCard = this.getCard(this.getCardsDealt());
+        this.setCardsDealt(this.getCardsDealt() + 1);
+        return drawnCard;
     }
 
     public void printDeck() {
